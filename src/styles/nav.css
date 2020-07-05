@@ -1,0 +1,112 @@
+/* Navbar styling */
+#nav {
+  position: fixed;
+  top: 0;
+  background: var(--primary-bg);
+  box-shadow: 5px 5px 10px rgba(173, 216, 230, 0.3);
+  z-index: 10;
+}
+
+#nav,
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+#nav ul li:hover {
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+#nav .search-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 10%;
+}
+
+#nav .search-wrapper #btn {
+  padding: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#nav .search-wrapper:hover + input,
+#nav .search-wrapper #btn:hover + input,
+#nav .search-wrapper #search:hover,
+#nav .search-wrapper #search:focus  {
+  width: 100%;
+  height: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#nav .search-wrapper #search {
+  width: 0%;
+  height: 0%;
+  padding: 2px;
+  border: 0;
+  outline: none;
+  transition: all 0.2s 0.2s ease-in-out;
+}
+
+.nav-active {
+  color: var(--secondary-color);
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Page Fade */
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 100ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 200ms ease-in;
+}
+
+.fade-logo {
+  position: relative;
+  animation: logo 1.6s ease-in;
+}
+
+.logo {
+  position: relative;
+  top: 30px;
+  max-width: 90px;
+}
+
+@keyframes logo {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.25;
+    transform: scale(1.5);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
