@@ -17,8 +17,8 @@ export class App extends Component {
         <Router>
           <Navbar />
           <Route render={({location}) => (
-            <TransitionGroup>
-              <CSSTransition key={location.key} timeout={{ enter: 300, exit:300 }} classNames={'fade'}>
+            // <TransitionGroup>
+            //   <CSSTransition key={location.key} timeout={{ enter: 300, exit:300 }} classNames={'fade-page'}>
                 <Switch >
                   <Route exact path='/' component={Home} />
                   <Route exact path='/history' component={History} />
@@ -26,8 +26,8 @@ export class App extends Component {
                   <Route exact path='/destinations' component={Destinations} />
                   <Route exact path='/accomondation' component={Accomondation} />
                 </Switch>
-              </CSSTransition>
-            </TransitionGroup>
+            //   </CSSTransition>
+            // </TransitionGroup>
           )} />
           <br/>
           <br/>

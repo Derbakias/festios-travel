@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Dot = ({active}) => {
+const Dot = ({active, changeSlide, index}) => {
   return (
-    <div className='dot' id={active}>
+    <div id={active} className={`dot ${index}`} onClick={changeSlide}>
     </div>
   )
 }

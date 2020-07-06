@@ -14,7 +14,7 @@ const Slider = () => {
   
   const [slides, setSlides] = useState({
     cur: 0,
-    next: 1
+    // next: 1
   })
 
   useEffect(() => {
@@ -24,41 +24,48 @@ const Slider = () => {
           return ({
             ...prevSlides,
             cur: 0,
-            next: slides.next + 1
+            // next: slides.next + 1
           })
         }
         return ({
           ...prevSlides,
           cur: slides.cur + 1,
-          next: slides.next + 1
+          // next: slides.next + 1
         })
       });
     }, 3000);
     return () => clearInterval(id);
   });
-  
-    return (
-      <div className='slider-wrapper'>
-        <div  className="slider-text">
-          <h1>Festios Travel</h1>
-          <p>Discover The Hidden Paradise!</p>
-        </div>
-        <div className='photo-wrapper'>
-        <img src={photos[slides.cur]} className='slides-fade' />
-          <div className='dots-wrapper'>
-            <Dot />
-            <Dot />
-            <Dot />
-            <Dot />
-            <Dot />
-          </div>
-        </div>
-        <button>CLIC!!!</button>
+
+  const { cur } = slides;
+
+  return (
+    <div className='slider-wrapper'>
+      <div  className="slider-text">
+        <h1>Festios Travel</h1>
+        <p>Discover The Hidden Paradise!</p>
       </div>
-  
-    )
-  
-  
+      <div className='photo-wrapper'>
+      <img src={photos[cur]} className='slides-fade' />
+        <div className='dots-wrapper'>
+         {photos.map((photo, index) => {
+           if(index === cur) {
+             console.log('active')
+             return <Dot index={index} changeSlide={changeSlide} active='active'/>
+           } else {
+             return <Dot index={index} changeSlide={changeSlide}/>
+           }
+         })}
+        </div>
+      </div>
+    </div>
+  )
+
+  function changeSlide(e) {
+    setSlides({
+      cur: parseInt(e.target.classList[1])
+    })
+  }
 }
 
 export default Slider

@@ -61,7 +61,7 @@
 /* Dots Style */
 .dots-wrapper {
   position: absolute;
-  bottom: 30%;
+  bottom: 15%;
   left: 50%;
   width: 180px;
   display: flex;
@@ -81,6 +81,6 @@
 }
 
 .dot:hover,
-.active-dot {
+#active {
   background: var(--secondary-color);
 }
